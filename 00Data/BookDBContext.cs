@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HelloWorldMVCWebApp._000data
+namespace HelloWorldMVCWebApp._00Data
 {
-    public class BookDBContext: DbContext 
+    public class BookDBContext : DbContext
     {
+
         public BookDBContext(DbContextOptions<BookDBContext> options) : base(options)
         {
-            
-        }
-        public DbSet<Book> Books { get; set; }
 
-        
+        }
+
+        public DbSet<Book> Books {get; set;}
+        public DbSet<Computer> Computers { get; set;}
     }
 }

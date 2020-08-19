@@ -3,14 +3,16 @@ using HelloWorldMVCWebApp._00Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HelloWorldMVCWebApp.Migrations
 {
     [DbContext(typeof(BookDBContext))]
-    partial class BookDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200805050515_createdBookClass")]
+    partial class createdBookClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,9 +30,6 @@ namespace HelloWorldMVCWebApp.Migrations
                     b.Property<string>("Author")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PublisherTitle")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
@@ -39,29 +38,6 @@ namespace HelloWorldMVCWebApp.Migrations
                     b.HasKey("BookId");
 
                     b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("HelloWorldMVCWebApp._00Data.Computer", b =>
-                {
-                    b.Property<int>("ComputerId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Author")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PublisherTitle")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("ComputerId");
-
-                    b.ToTable("Computers");
                 });
 #pragma warning restore 612, 618
         }
